@@ -12483,10 +12483,10 @@ web3-shh@1.6.0:
     web3-core-subscriptions "1.6.0"
     web3-net "1.6.0"
 
-web3-token@^0.1.32:
-  version "0.1.32"
-  resolved "https://registry.yarnpkg.com/web3-token/-/web3-token-0.1.32.tgz#6c4f3a0e6c1d73673cee817749f2cc9b82a5d2b5"
-  integrity sha512-3BPE+bjEzN+O2VEZD4RAGot66k2/MBL1AAS0lLSkkYdYky/Ek/+RfUHXWo3jSTYgYdZHln2rlzpuYSYUVg9pmQ==
+web3-token@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/web3-token/-/web3-token-0.2.5.tgz#022c003a9b97fb6f18b3d4d469071aae57014992"
+  integrity sha512-efTCQHKzKcAAM+ze2sQhyw3GBxUUbIZH3ZTnFpOaIATyzZXMMve7vDBUiUjObvRZeomLdSqNEmNt6NnOqoKzDw==
   dependencies:
     base-64 "^1.0.0"
     bignumber.js "^9.0.1"
