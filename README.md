@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+View live version [here](https://web3-token-fe.vercel.app/).
+
 ## Available Scripts
 
 In the project directory, you can run:
