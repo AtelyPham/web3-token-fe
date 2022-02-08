@@ -1,12 +1,13 @@
-import { useState } from 'react'
-import './App.css'
-import { sign } from './web3'
-import copy from 'copy-to-clipboard'
+import { useState } from "react"
+import "./App.css"
+import { sign } from "./web3"
+import copy from "copy-to-clipboard"
+import { addNetworkFactory } from "./addNetworkFactory"
 
 let expireRef, tokenRef
 
 function App() {
-  const [token, setToken] = useState('')
+  const [token, setToken] = useState("")
 
   const onSubmit = async event => {
     event.preventDefault()
@@ -20,9 +21,12 @@ function App() {
     copy(tokenRef.value)
   }
 
+  const addMainnet = addNetworkFactory(56)
+  const addTestnet = addNetworkFactory(97)
+
   return (
-    <>
-      <form className="App" onSubmit={onSubmit}>
+    <div className="App">
+      <form onSubmit={onSubmit}>
         <label htmlFor="expire">Expire time (s): </label>
         <input
           type="number"
@@ -32,7 +36,7 @@ function App() {
           min={10}
           defaultValue={300}
           ref={node => (expireRef = node)}
-          style={{ marginRight: '1rem' }}
+          style={{ marginRight: "1rem" }}
         />
         <br />
         <label htmlFor="token">Token: </label>
@@ -46,7 +50,11 @@ function App() {
         <button onClick={onCopy}>Copy</button>
         <button>Sign</button>
       </form>
-    </>
+      <div>
+        <button onClick={addMainnet}>Add Binance mainnet</button>
+        <button onClick={addTestnet}>Add Binance testnet</button>
+      </div>
+    </div>
   )
 }
 
