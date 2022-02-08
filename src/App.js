@@ -2,7 +2,7 @@ import { useState } from "react"
 import "./App.css"
 import { sign } from "./web3"
 import copy from "copy-to-clipboard"
-import { changeNetwork } from "./networkFunc"
+import { addNetworkFactory, changeNetwork } from "./networkFunc"
 
 let expireRef, tokenRef
 
@@ -20,6 +20,8 @@ function App() {
     event.preventDefault()
     copy(tokenRef.value)
   }
+  const addMainnet = addNetworkFactory(56)
+  const addTestnet = addNetworkFactory(97)
 
   return (
     <div className="App">
@@ -48,8 +50,8 @@ function App() {
         <button>Sign</button>
       </form>
       <div>
-        <button onClick={() => changeNetwork(56)}>Add Binance mainnet</button>
-        <button onClick={() => changeNetwork(97)}>Add Binance testnet</button>
+        <button onClick={addMainnet}>Add Binance mainnet</button>
+        <button onClick={addTestnet}>Add Binance testnet</button>
       </div>
     </div>
   )
