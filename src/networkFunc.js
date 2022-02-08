@@ -45,3 +45,20 @@ export function addNetworkFactory(chainId) {
 
   return addNetwork
 }
+
+export async function changeNetwork(chainId) {
+  try {
+    if (!window.ethereum) throw new Error("No crypto wallet found")
+
+    await window.ethereum.request({
+      method: "wallet_switchEthereumChain",
+      params: [{ chainId: `0x${Number(chainId).toString(16)}` }],
+    })
+  } catch (error) {
+    if (error.code !== 4902) {
+      return console.log(error)
+    }
+
+    addNetworkFactory(chainId)()
+  }
+}
