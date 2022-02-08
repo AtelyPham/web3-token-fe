@@ -1,8 +1,8 @@
+import copy from "copy-to-clipboard"
 import { useState } from "react"
 import "./App.css"
+import { addNetworkFactory } from "./networkFunc"
 import { sign } from "./web3"
-import copy from "copy-to-clipboard"
-import { addNetworkFactory, changeNetwork } from "./networkFunc"
 
 let expireRef, tokenRef
 
