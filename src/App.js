@@ -1,13 +1,18 @@
 import copy from "copy-to-clipboard"
 import { useState } from "react"
 import "./App.css"
+import { generateDappUrl } from "./generateDappUrl"
 import { addNetworkFactory } from "./networkFunc"
+import { useMobileDetect } from "./useMobileDetect"
 import { sign } from "./web3"
 
 let expireRef, tokenRef
 
+const appUrl = "https://web3-token-fe.vercel.app"
+
 function App() {
   const [token, setToken] = useState("")
+  const { isMobile } = useMobileDetect()
 
   const onSubmit = async event => {
     event.preventDefault()
@@ -22,6 +27,10 @@ function App() {
   }
   const addMainnet = addNetworkFactory(56)
   const addTestnet = addNetworkFactory(97)
+
+  const handleClick = () => {
+    window.location.href = isMobile() ? generateDappUrl(appUrl) : appUrl
+  }
 
   return (
     <div className="App">
@@ -49,9 +58,11 @@ function App() {
         <button onClick={onCopy}>Copy</button>
         <button>Sign</button>
       </form>
+      <div id="info">Is mobile: {isMobile() ? "true" : "false"}</div>
       <div>
         <button onClick={addMainnet}>Add Binance mainnet</button>
         <button onClick={addTestnet}>Add Binance testnet</button>
+        <button onClick={handleClick}>Open link</button>
       </div>
     </div>
   )
