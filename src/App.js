@@ -40,7 +40,6 @@ function App() {
           type="number"
           name="expire-time"
           id="expire-time"
-          max={3600}
           min={10}
           defaultValue={300}
           ref={node => (expireRef = node)}
